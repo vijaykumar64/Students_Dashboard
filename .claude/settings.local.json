@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"C:\\\\Users\\\\kotha\\\\OneDrive\\\\Desktop\\\\Asign\")",
+      "Bash(python -c ' *)",
+      "Bash(pip --version)",
+      "Bash(./venv/Scripts/pip install *)",
+      "Bash(./venv/Scripts/python manage.py check)",
+      "Bash(./venv/Scripts/python -c ' *)",
+      "Bash(./venv/Scripts/python manage.py migrate --run-syncdb)",
+      "Bash(npm install *)",
+      "Bash(npx vite *)",
+      "Bash(./venv/Scripts/python manage.py runserver 8000)",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?page_size=2\")",
+      "Bash(python -m json.tool)",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/stats/\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/departments/\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?search=Meera&ordering=-gpa\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?page=1&page_size=10\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?page=10&page_size=10\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?page=999\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?search=\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?search=%27+OR+%271%27%3D%271\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?search=%25\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?search=ZZZZNOTEXIST\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://127.0.0.1:8000/api/students/S001/\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://127.0.0.1:8000/api/students/NOTEXIST/\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/BADID/\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://127.0.0.1:8000/api/students/stats/\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?ordering=-gpa&page_size=3\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?ordering=password\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?department=CSE\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?department=CSE&min_gpa=9.0\")",
+      "Bash(curl -s -I -X OPTIONS http://127.0.0.1:8000/api/students/ -H 'Origin: http://localhost:5173' -H 'Access-Control-Request-Method: GET')",
+      "Bash(curl -s -I http://127.0.0.1:8000/api/students/ -H 'Origin: http://evil.com')",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?page_size=200\")",
+      "Bash(curl -s \"http://127.0.0.1:8000/api/students/?page_size=-1\")",
+      "Bash(pkill -f \"manage.py runserver\")",
+      "Bash(npm run *)",
+      "Bash(node -e ' *)"
+    ]
+  }
+}
