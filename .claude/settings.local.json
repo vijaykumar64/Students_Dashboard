@@ -37,7 +37,14 @@
       "Bash(curl -s \"http://127.0.0.1:8000/api/students/?page_size=-1\")",
       "Bash(pkill -f \"manage.py runserver\")",
       "Bash(npm run *)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\kotha\\\\OneDrive\\\\Desktop\\\\Asign\" -Force)",
+      "Bash(Select-Object Name, PSIsContainer)",
+      "Bash(Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\kotha\\\\OneDrive\\\\Desktop\\\\Asign\\\\frontend\\\\src\" -Recurse | Where-Object {$_.PSIsContainer -eq $false} | Select-Object Name | Format-Table -AutoSize)",
+      "Bash(git add *)",
+      "Bash(git rm *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
