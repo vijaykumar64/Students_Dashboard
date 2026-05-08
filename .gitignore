@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+env/
+.venv/
+
+# Django
+backend/staticfiles/
+*.log
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Env files (keep .env.production for build, ignore local secrets)
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db

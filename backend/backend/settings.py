@@ -8,19 +8,17 @@ This file configures:
 - REST Framework pagination and filtering settings
 """
 
+import os
 from pathlib import Path
 
 # BASE_DIR points to: Asign/backend/
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECRET KEY - change this in production!
-SECRET_KEY = 'django-insecure-student-mgmt-secret-key-change-in-prod'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-student-mgmt-secret-key-change-in-prod')
 
-# Debug mode - set False in production
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-# Hosts allowed to connect to this backend
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 # ─── Installed Applications ──────────────────────────────────────────────────
 INSTALLED_APPS = [
@@ -46,6 +44,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',   # Must be first!
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -104,14 +103,22 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+import os
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # ─── CORS Configuration ───────────────────────────────────────────────────────
 # Allow the React frontend (running on port 5173) to make API calls.
 # In production, replace with your actual frontend domain.
+_extra_cors = os.environ.get('CORS_ALLOWED_ORIGINS', '')
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',   # Vite dev server
+    'http://localhost:5173',
     'http://127.0.0.1:5173',
-    'http://localhost:3000',   # Alternative React port
+    'http://localhost:3000',
+    *([u for u in _extra_cors.split(',') if u]),
 ]
 
 CORS_ALLOW_ALL_ORIGINS = False  # Strict CORS in production
@@ -144,4 +151,5 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
         *(['rest_framework.renderers.BrowsableAPIRenderer'] if DEBUG else []),
     ],
+    
 }
